@@ -44,7 +44,7 @@ function userOne() {
                 second = 60;
             }
         second--;
-    },10)
+    },1000)
 }
 function userTwo() {
     clearInterval(oneInterval);
@@ -72,6 +72,6 @@ function userTwo() {
             second = 60
         }
         second--;
-    },10)
+    },1000)
 }
 
