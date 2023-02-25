@@ -17,7 +17,11 @@ timeTwo.innerHTML = '10:00';
 console.log(timeOne);
 let oneInterval;
 let twoInterval;
+oneUserLab.addEventListener("click", userOne);
 function userOne() {
+    oneUserLab.removeEventListener("click", userOne);
+    oneUserLab.removeEventListener("click", userTwo);
+
     clearInterval(twoInterval);
     oneUser.checked = true;
     if(oneUser.checked){
@@ -35,10 +39,10 @@ function userOne() {
                 minute = 10;
                 second = 0;
                 timeTwo.innerHTML = `${minute}:${second}0`;
-
-             }
-             
+                
             }
+            
+        }
             if(second === 0){
                 minute--;
                 second = 60;
@@ -46,7 +50,11 @@ function userOne() {
         second--;
     },1000)
 }
+twoUserLab.addEventListener("click", userTwo);
 function userTwo() {
+    twoUserLab.removeEventListener("click", userTwo);
+    oneUserLab.addEventListener("click", userOne);
+
     clearInterval(oneInterval);
     twoUser.checked = true;
     if(twoUser.checked){
